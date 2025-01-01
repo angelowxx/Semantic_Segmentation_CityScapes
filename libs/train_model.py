@@ -28,7 +28,8 @@ def train(model, epochs=30, lr=0.05, data_dir=None):
 
 def train_epoch(model, train_loader, criterion, optimizer, device):
     model.train()
-    for images, masks in train_loader:
+    t = tqdm(train_loader)
+    for images, masks in t:
         images = images.to(device)
         masks = masks.to(device)
 
@@ -37,4 +38,6 @@ def train_epoch(model, train_loader, criterion, optimizer, device):
         loss = criterion(predictions, masks)
         loss.backward()
         optimizer.step()
+        t.set_description('(=> Training) Loss: {:.4f}'
+                          .format(loss.item()))
 
