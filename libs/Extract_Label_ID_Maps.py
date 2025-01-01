@@ -47,7 +47,6 @@ class Label_Id_Maps_Extracter():
 
     def extract_id_color_maps(self):
         json_file_path = os.path.join(self.root_dir, "Label_ID.json")
-        os.makedirs(json_file_path, exist_ok=True)
         length = self.__len__()
         for i in range(length):
             self.__getitem__(i)
