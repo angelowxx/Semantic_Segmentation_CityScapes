@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 from libs.CityScapesDataset import CityscapesDataset
 
-def train(model, epochs=30, lr=0.01, data_dir=None):
+def train(model, epochs=1, lr=0.01, data_dir=None):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     model_save_path = os.path.join(os.getcwd(), 'results', 'models')

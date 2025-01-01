@@ -15,4 +15,4 @@ from libs.train_model import *
 if __name__ == '__main__':
     model = Semantic_Segmentater()
     data_dir = os.path.join(os.getcwd(), "dataset")
-    train(model=model, epochs=30, lr=0.01, data_dir=data_dir)
+    train(model=model, epochs=1, lr=0.005, data_dir=data_dir)
