@@ -22,6 +22,7 @@ def train(model, epochs=30, lr=0.05, data_dir=None):
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
     for epoch in range(epochs):
+        print(f'epoch:[{epoch+1}/{epochs}]')
         train_epoch(model, train_loader, criterion, optimizer, device)
         torch.save(model.state_dict(), model_save_path)
 
