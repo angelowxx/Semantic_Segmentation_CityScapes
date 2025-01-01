@@ -20,6 +20,7 @@ def train(model, epochs=30, lr=0.05, data_dir=None):
 
     criterion = nn.CrossEntropyLoss().to(device)
     optimizer = optim.Adam(model.parameters(), lr=lr)
+    model = model.to(device)
 
     for epoch in range(epochs):
         print(f'epoch:[{epoch+1}/{epochs}]')
