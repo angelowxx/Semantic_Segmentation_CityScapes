@@ -16,7 +16,7 @@ def train(model, epochs=1, lr=0.01, data_dir=None):
     model_save_path = os.path.join(model_save_path, 'Semantic_Segmenter')
 
     train_data = CityscapesDataset(root_dir=data_dir, split="train")
-    train_loader = DataLoader(train_data, batch_size=2, shuffle=True)
+    train_loader = DataLoader(train_data, batch_size=4, shuffle=True)
 
     criterion = nn.CrossEntropyLoss().to(device)
     optimizer = optim.Adam(model.parameters(), lr=lr)
