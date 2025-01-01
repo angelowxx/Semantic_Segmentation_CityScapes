@@ -56,5 +56,6 @@ class Label_Id_Maps_Extracter():
             json.dump(self.maps, json_file, indent=4)  # Use indent=4 to format the JSON with indentation
 
 if __name__ == '__main__':
-    label_id_maps_extracter = Label_Id_Maps_Extracter(r'D:\python\SemanticSegmentation_CityScapes\dataset')
+    data_dir = json_file_path = os.path.join(os.getcwd(), "dataset")
+    label_id_maps_extracter = Label_Id_Maps_Extracter(data_dir)
     label_id_maps_extracter.extract_id_color_maps()
