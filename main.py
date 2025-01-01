@@ -14,4 +14,5 @@ from libs.train_model import *
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     model = Semantic_Segmentater()
-    train(model=model, epochs=30, lr=0.01, data_dir=r'D:\python\SemanticSegmentation_CityScapes\dataset')
+    data_dir = os.path.join(os.getcwd(), "dataset")
+    train(model=model, epochs=30, lr=0.01, data_dir=data_dir)
