@@ -20,11 +20,17 @@ def train(model, epochs=30, lr=0.01, data_dir=None):
 
     criterion = nn.CrossEntropyLoss().to(device)
     optimizer = optim.Adam(model.parameters(), lr=lr)
+    scheduler = optim.lr_scheduler.StepLR(
+        optimizer=optimizer,
+        step_size=1,
+        gamma=0.5,
+    )
     model = model.to(device)
 
     for epoch in range(epochs):
         print(f'epoch:[{epoch+1}/{epochs}]')
         train_epoch(model, train_loader, criterion, optimizer, device)
+        scheduler.step()
         torch.save(model.state_dict(), model_save_path)
 
 
