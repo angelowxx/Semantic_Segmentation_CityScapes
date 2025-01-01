@@ -97,9 +97,7 @@ def parse_size_to_bytes(size_str):
 
 
 def download_packages(*, session, package_names, destination_path, resume=False):
-    if not os.path.isdir(destination_path):
-        raise Exception(
-            "Destination path '{}' does not exist.".format(destination_path))
+    os.makedirs(destination_path, exist_ok=True)
 
     packages = get_available_packages(session=session)
     name_to_id = {p['name']: p['packageID'] for p in packages}
